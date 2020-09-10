@@ -1,5 +1,4 @@
-var container = document.querySelector("#clock");
-var para = document.querySelector("#p");
+var para = document.querySelector(".custom");
 
 var getTime = () => {
   var time = new Date();
