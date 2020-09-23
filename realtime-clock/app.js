@@ -22,9 +22,7 @@ var getTime = () => {
   para.innerHTML = `${t}`;
   //   para.innerHTML = ''
 
-  //para.appendChild(t);
-
-  container.appendChild(para);
+  
 
   //console.clear();
   //console.log(t);
