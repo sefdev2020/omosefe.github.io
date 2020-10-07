@@ -4,8 +4,11 @@ var button = document.querySelector(".btn");
 var todoContainer = document.querySelector(".todo-container");
 var todoList = document.querySelector(".todos");
 
+
+
 // Get Input and add to the todo container
 const getInput = () => {
+
   if (input.value !== "") {
     var inputValue = input.value;
     //console.log(inputValue);
@@ -26,8 +29,10 @@ const getInput = () => {
     check.setAttribute("type", "checkbox");
     check.className = "checker";
 
-    var createText = document.createElement("p");
+    var createText = document.createElement("label");
     createText.innerHTML = `${inputValue}`;
+    createText.className = "label"
+    
 
     let createDel = document.createElement("i");
     createDel.className = "fas fa-trash";
@@ -37,6 +42,8 @@ const getInput = () => {
 
     let iconDiv = document.createElement("div");
     iconDiv.className = "icons";
+
+    
 
     createDiv.appendChild(para);
     createDiv.appendChild(iconDiv);
@@ -61,13 +68,19 @@ const getInput = () => {
       listItem.remove(createDiv);
     };
 
-    let changeTo = "yellow";
+    // STARRING A TODO ITEM
 
+    let changeTo = "#FF9529";
+  
     const star = () => {
+      
+      //TOGGLE THE STAR ON/OFF
       let current = changeTo;
       changeTo = createStar.style.color;
       createStar.style.color = current;
     };
+
+    //ADDING EVENT TO THE TODO STAR AND DELETE
 
     createDel.addEventListener("click", del);
 
@@ -77,6 +90,20 @@ const getInput = () => {
   } else {
     alert("Please Enter a Task");
   }
+
+  let strikeThrough = "line-through";
+
+  const complete = () => {
+    let current = strikeThrough;
+    strikeThrough = createText.style.textDecoration;
+    createText.style.textDecoration = current;
+  }
+
+  check.addEventListener("change", complete);
+
+ 
+  
+  //END OF GETINPUT FUNCTION
 };
 
 //clears the input field
@@ -87,7 +114,8 @@ const clear = () => {
 //calling the ADD ITEM event
 button.addEventListener("click", getInput);
 
-input.addEventListener("keyup", function (event) {
+
+input.addEventListener("keyup", (event) => {
   // Number 13 is the "Enter" key on the keyboard
   if (event.keyCode === 13) {
     // Cancel the default action, if needed
@@ -96,3 +124,5 @@ input.addEventListener("keyup", function (event) {
     document.querySelector(".btn").click();
   }
 });
+
+
