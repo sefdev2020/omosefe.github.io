@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@30&family=Montserrat:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 
 
 * {
@@ -78,6 +80,8 @@ input {
     justify-content: space-between;
     background: rgba(255, 255, 255, 0.8);
     border: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: large;
     margin-bottom: 5px;
     padding: 10px;
     padding-right: 10px;
@@ -111,7 +115,7 @@ li {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 45px;
+    width: 70px;
     height: 20px;
     
 }
@@ -130,3 +134,4 @@ li {
     width: fit-content;
     /* border: 1px solid #000000; */
 }
+

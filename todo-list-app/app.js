@@ -29,6 +29,9 @@ const getInput = () => {
     check.setAttribute("type", "checkbox");
     check.className = "checker";
 
+    var checkmark = document.createElement("span");
+    checkmark.className = "checkmark";
+
     var createText = document.createElement("label");
     createText.innerHTML = `${inputValue}`;
     createText.className = "label"
@@ -50,6 +53,7 @@ const getInput = () => {
 
     para.appendChild(checkDiv);
     checkDiv.appendChild(check);
+    checkDiv.appendChild(checkmark);
     para.appendChild(createText);
 
     iconDiv.appendChild(createStar);
