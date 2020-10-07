@@ -95,12 +95,19 @@ const getInput = () => {
     alert("Please Enter a Task");
   }
 
+
+  // Strikthrough the text when checkbox is checked
   let strikeThrough = "line-through";
+  let strikeColor = "#838383"
 
   const complete = () => {
     let current = strikeThrough;
     strikeThrough = createText.style.textDecoration;
     createText.style.textDecoration = current;
+
+    let currentColor = strikeColor;
+    strikeColor = createText.style.color;
+    createText.style.color = currentColor;
   }
 
   check.addEventListener("change", complete);
