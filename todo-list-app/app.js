@@ -3,12 +3,10 @@ var input = document.querySelector("#input");
 var button = document.querySelector(".btn");
 var todoContainer = document.querySelector(".todo-container");
 var todoList = document.querySelector(".todos");
-
-
+var ul = document.querySelector("ul");
 
 // Get Input and add to the todo container
 const getInput = () => {
-
   if (input.value !== "") {
     var inputValue = input.value;
     //console.log(inputValue);
@@ -34,8 +32,7 @@ const getInput = () => {
 
     var createText = document.createElement("label");
     createText.innerHTML = `${inputValue}`;
-    createText.className = "label"
-    
+    createText.className = "label";
 
     let createDel = document.createElement("i");
     createDel.className = "fas fa-trash";
@@ -45,8 +42,6 @@ const getInput = () => {
 
     let iconDiv = document.createElement("div");
     iconDiv.className = "icons";
-
-    
 
     createDiv.appendChild(para);
     createDiv.appendChild(iconDiv);
@@ -61,7 +56,7 @@ const getInput = () => {
 
     listItem.appendChild(createDiv);
 
-    todoContainer.appendChild(listItem);
+    ul.appendChild(listItem);
 
     // Delete Items from the Todo list
     const del = (e) => {
@@ -75,13 +70,13 @@ const getInput = () => {
     // STARRING A TODO ITEM
 
     let changeTo = "#FF9529";
-  
+
     const star = () => {
-      
       //TOGGLE THE STAR ON/OFF
       let current = changeTo;
       changeTo = createStar.style.color;
       createStar.style.color = current;
+      moveUpStarred();
     };
 
     //ADDING EVENT TO THE TODO STAR AND DELETE
@@ -95,10 +90,18 @@ const getInput = () => {
     alert("Please Enter a Task");
   }
 
+  //Move the Element to the Top when starred
+  
+
+  const moveUpStarred = () => {
+    let move = ul.insertBefore(listItem, ul.childNodes[0]);
+    let current = move;
+    //move = current;
+  }
 
   // Strikthrough the text when checkbox is checked
   let strikeThrough = "line-through";
-  let strikeColor = "#838383"
+  let strikeColor = "#838383";
 
   const complete = () => {
     let current = strikeThrough;
@@ -108,12 +111,10 @@ const getInput = () => {
     let currentColor = strikeColor;
     strikeColor = createText.style.color;
     createText.style.color = currentColor;
-  }
+  };
 
   check.addEventListener("change", complete);
 
- 
-  
   //END OF GETINPUT FUNCTION
 };
 
@@ -125,7 +126,6 @@ const clear = () => {
 //calling the ADD ITEM event
 button.addEventListener("click", getInput);
 
-
 input.addEventListener("keyup", (event) => {
   // Number 13 is the "Enter" key on the keyboard
   if (event.keyCode === 13) {
@@ -135,5 +135,3 @@ input.addEventListener("keyup", (event) => {
     document.querySelector(".btn").click();
   }
 });
-
-
